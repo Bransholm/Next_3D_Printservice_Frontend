@@ -1,0 +1,155 @@
+/* Body & HTML */
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Body */
+body {
+  background-color: white;
+  font-size: 16px;
+}
+
+/* Header */
+header {
+  background-color: blue;
+  color: white;
+  height: 40px;
+  font-size: 40px;
+  padding-left: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* Nav bar */
+nav {
+  display: flex;
+  gap: 60px;
+  background-color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.view-link-admin-menu {
+  color: white;
+  text-decoration: none;
+}
+
+.view-link-admin-menu:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+/* Main */
+main {
+  background-color: white;
+  color: black;
+  min-height: 76%;
+  padding: 20px;
+}
+
+/* Spa-rpoter */
+.view-content {
+  display: none;
+}
+
+.view-content.active {
+  display: block;
+}
+
+/* Products */
+.product-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+/* Stock */
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  background-color: #f2f2f2;
+}
+
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+/* catalouge */
+
+form {
+  max-width: 600px;
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  text-align: left;
+  margin-right: 15px;
+}
+
+input,
+select {
+  width: 300px;
+  padding: 2px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.btn_submit {
+  display: block;
+  width: 50%;
+  margin: 0 170px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+/* View order */
+.finance-form-label {
+  display: inline-block;
+  width: 80px;
+  padding-bottom: 6px;
+}
+
+.finance-form-input {
+  width: 140px;
+}
+
+#finance-button {
+  margin-left: 100px;
+  margin-top: 5px;
+}
+
+/* Buttons */
+button {
+  background-color: black;
+  border: 2px solid blue;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+  background-color: blue;
+}
+
+button:active {
+  transform: scale(0.98);
+}

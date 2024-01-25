@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>3D Printservice</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">3D Printservice</header>
+    
+    <!-- Nav bar -->
+    <nav>
+      <a href="#products" class="view-link view-link-menu">PRODUKTER</a>
+      <a href="#view_order" class="view-link view-link-menu">SE ORDRE</a>
+      <a href="#about_us" class="view-link view-link-menu">OM OS</a>
+      <a href="#shopping_cart" class="view-link view-link-menu">INDKØBSKURV</a>
+    </nav>
+
+    <!-- Main - The screen: The content in sections -->
+    <main id="main">
+
+        <!-- Section products -->
+        <section id="products" class="view-content">
+        
+        <!-- The dropdown filter -->
+        <container id="filter-catagory">
+        <label for="options">Kategorifilter:</label>
+        <select id="options">
+        <option value="all" selected>Alle</option>
+        <option value="Bygninger">Bygninger</option>
+        <option value="Dyr">Dyr</option>
+        <option value="Eventyr">Eventyr</option>
+        <option value="Sci-fi">Sci-fi</option>        
+        </select>
+        </container>
+
+        <!-- The search bar -->
+        <container id="search-name"></container>
+        <input type="text" id="search" placeholder="Søg...">
+        <button id="search-button">Søg</button>
+        </container>
+   
+        
+        <!-- Here shows the product catalogue -->
+        <container id="product_catalogue" class="grid-container"> Hele Kataloget </container>
+      </section>
+      
+      <section id="product_by_id" class="view-content">
+          <container id="product_id"> Det enkelte prodult </container>
+
+        <dialog id="dialog-data-policy">
+        <p>Du har tilføjet en vare til kurven</p>
+        <form method="dialog">
+          <button class="change_cursor_to_a_pointer_on_hover">Luk vindue</button>
+        </form>
+      </dialog>
+
+        </section>
+        
+      
+      <!-- This section shows the payment informaion -->
+      <section id="payent_information_window" class="view-content">
+      
+          <div id="payment-information-message"> </div>
+    
+      <a id="to-payment-info-link" href="#payent_information_window"></a>
+      </section>
+
+
+      
+
+        <!-- Section shopping cart -->
+        <section id="shopping_cart" class="view-content">
+          
+          <container id="shopping_cart_site">
+            <div><h3 id="indkøbskurv-h3-title">Indkøbskurv</h3><a href="#products" class="view-link view-link-menu"><button>Shop videre</button></a></div>
+            
+            <div id="shopping_cart_view"><h4>Indkøbskurven er tom.<br>Vælg de produkter du ønsker at købe...</h4></div>
+
+
+            <div id="shopping_cart_price_iformation">
+
+            </div>
+            
+          </container>
+
+            <!-- cutsomer -->
+            <div id="search_existing_customer_by_email">
+              
+              <h3>Indtast din e-mail:</h3> 
+
+              <div id="search_existing_customer_by_email_error_message"></div>          
+              
+              <form id="retrive_customer_by_email">
+                <label for="retrive_customer_by_email_input">Email</label>
+                   <input
+                     type="email"
+                     id="retrive_customer_by_email_input"
+                     name="existing_email"
+                     placeholder="eksempel@mail.dk"
+                     required
+                  />
+                     
+                <button id="btn_retrieve_customer_by_email" type="submit">Bekræft</button>
+                </form>
+            </div>
+
+            <h3>Indtast kundeoplysninger</h3>
+
+            <div id="insert_orderinfo">
+           
+              <form id="order_details_form">
+
+                <!-- kunden -->
+                <label for="first_name_input">Fornavn</label>
+                   <input
+                     type="text"
+                     id="first_name_input"
+                     name="firstName"
+                     placeholder="Fornavn"
+                     required
+                    />
+
+                <label for="last_name_input">Efternavn</label>
+                  <input
+                    type="text"
+                    id="last_name_input"
+                    name="lastName"
+                    placeholder="Efternavn"
+                    required
+                  />
+
+              <h3> Adresse </h3>
+             
+              <label for="adress_input">Adresse</label>
+                <input
+                  type="text"
+                  id="adress_input"
+                  name="adress"
+                  placeholder="Adresse"
+                  required
+                  />
+                  
+              <label for="zip_code_input">Postnummer</label>
+                <input
+                  type="text"
+                  id="zip_code_input"
+                  name="zipCode"
+                  placeholder="0000"
+                  pattern="[0-9]{4}"
+                  required
+                  />    
+
+              <label for="city_input">By</label>
+                <input
+                  type="text"
+                  id="city_input"
+                  name="city"
+                  placeholder="Bynavn"
+                  required
+                  />  
+
+
+
+               <h3>Indtast leveringsadresse </h3>
+                  <label for="delivery_adress_input">Adresse</label>
+                    <input
+                     type="text"
+                      id="delivery_adress_input"
+                      name="deliveryAdress"
+                      placeholder="Adresse"
+                      required
+                    />
+                  
+               <label for="delivery_zip_code_input">Postnummer</label>
+                <input
+                  type="text"
+                  id="delivery_zip_code_input"
+                  name="deliveryZipCode"
+                  placeholder="0000"
+                  pattern="[0-9]{4}"
+                  required
+                  />    
+
+               <label for="delivery_city_input">By </label>
+                <input
+                  type="text"
+                  id="delivery_city_input"
+                  name="deliveryCity"
+                  placeholder="Bynavn"
+                  required
+                  />    
+
+                  <div id="accept_terms_and_conditions">                    
+                    <label for="accept_payment_details_checkbox">Bekræft <span id="tradeing-terms-link" class="change_cursor_to_a_pointer_on_hover"><u>handelsbetingelser</u></span></label>
+                    <input type="checkbox"
+                    id="accept_payment_details_checkbox"
+                    required/>          
+                  </div>
+
+
+               <button id="btn_submit_order_details" type="submit">Gå til betaling</button>   
+                      
+              </form>
+
+            </div>
+          
+          </section>
+
+        
+        <!-- Section view order -->
+        <section id="view_order" class="view-content">
+            <article>
+              <p>Her kan du se din ordre.<br>
+              Blot indtast dit ordrenummer og tilknyttede e-mailadresse og tryk på "Vis min ordre".
+              </p>
+            </article>
+            <form id="view-order-form">
+  <div class="form-group">
+    <label for="ordrenummer" class="view-order-form-label">Ordrenummer:</label>
+    <input type="number" id="ordernumber" name="ordernumber" placeholder="F.eks. &quot;1905&quot;" required class="view-order-form-input">
+  </div>
+  <div class="form-group">
+    <label for="email" class="view-order-form-label">E-mailadresse:</label>
+    <input type="email" id="email" name="email" placeholder="F.eks. &quot;min@email.dk&quot;" required class="view-order-form-input">
+  </div>
+  <div class="form-group">
+    <button type="submit" id="view-order-button">Vis min ordre</button>
+  </div>
+</form>
+
+
+             <div id="view-order-information-overivew"></div>
+             <div id="oder_lines_overview" class="view-order-grid"></div>
+
+
+
+        </section>
+        
+        <!-- Section about us -->
+        <section id="about_us" class="view-content">
+            <h2 id="about_us_h2">3D Printservice</h2>
+            <p>Hos 3D Printservice er dedikerede til at bringe dine kreative visioner til virkelighed gennem den spændende verden af 3D-printning. Siden vores begyndelse i 2021 har vi været passionerede om at levere skræddersyede, højkvalitets 3D-udskrifter til vores kunder.</p>
+            <p>Vores specialitet ligger i at tilbyde en god oplevelse, hvor du har fuld kontrol. Gennem vores online katalog kan du vælge fra et større udvalg af produkter i selv bestemme størrelser fra 5 til 30 centimeter i højden, som du ønsker 3D printet. Det er din vision, vi giver dig muligheden for at tilpasse størrelsen, så den passer præcis til dit ønske.</p>
+            <p>3D Printservice ønsker vi at skabe en platform for din kreativitet. Har du en unik idé, du ønsker at bringe til live? Så kom med en 3D-tegning af din ide, og lad os hjælpe dig med at 3D-printe den. Vores team står klar til at rådgive og assistere dig gennem processen.</p>
+            <p>Vi stræber efter at levere ikke kun et produkt, men en helt igennem god oplevelse for dig. Vores engagement i kvalitet, præcision og kundeservice er fundamentalt for vores tilgang.</p>
+            <p>Tag endelig kontakt til os, hvis du har nogle spørgsmål.</p>
+            <p>3D Printservice<br>Skolegade 25, st.<br>6700 Esbjerg<br>Tlf.: 28 90 90 42<br><a href="mailto:kundeservice@3d-printservice.com">kundeservice@3d-printservice.com</a></p>
+        </section>
+
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer>
+      <span id="faq-link" class="change_cursor_to_a_pointer_on_hover">FAQ</span>
+      <span id="tradeing-terms-link" class="change_cursor_to_a_pointer_on_hover">Handelsbetingelser</span>
+      <span id="data-policy-link" class="change_cursor_to_a_pointer_on_hover">Datapolitik</span>
+
+      <!-- Dialog windows from Footer -->
+      <dialog id="dialog-faq">
+        <p>FAQ</p>
+        <p>(Tekst afventer PO)</p>
+        <form method="dialog">
+          <button class="change_cursor_to_a_pointer_on_hover">Luk vindue</button>
+        </form>
+      </dialog>
+
+      <dialog id="dialog-tradeing-terms">
+        <p>Handelsbetingelser</p>
+        <p>(Tekst afventer PO)</p>
+        <form method="dialog">
+          <button class="change_cursor_to_a_pointer_on_hover">Luk vindue</button>
+        </form>
+      </dialog>
+
+      <dialog id="dialog-data-policy">
+        <p>Datapolitik</p>
+        <p>(Tekst afventer PO)</p>
+        <form method="dialog">
+          <button class="change_cursor_to_a_pointer_on_hover">Luk vindue</button>
+        </form>
+      </dialog>
+    </footer>
+
+    <script src="./frontpage/frontpage-controller/main.js" type="module"></script>
+  </body>
+</html>

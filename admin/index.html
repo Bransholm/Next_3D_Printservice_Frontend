@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="admin-style.css" />
+    
+    <title>3D Printservice Admin</title>
+</head>
+<body>
+
+      <!-- Header -->
+      <header id="header">3D Printservice Admin</header>
+        
+      <!-- Menu -->
+      <nav>
+          <a href="#orders" class="view-link view-link-admin-menu">ORDRE</a>
+          <a href="#products" class="view-link view-link-admin-menu">PRODUKTER</a>
+          <a href="#stock" class="view-link view-link-admin-menu">LAGER</a>
+          <a href="#customer" class="view-link view-link-admin-menu">KUNDER</a>
+          <a href="#finance" class="view-link view-link-admin-menu">FINANS</a>
+          <a href="#settings" class="view-link view-link-admin-menu">INDSTILLINGER</a>        
+        </nav>
+      
+      <!-- Main - Here is the content on the different pages in sections -->
+      <main>
+
+        <!-- Section products -->
+        <section id="orders" class="view-content">Ordre</section>
+
+        <!-- Section products -->
+        <section id="products" class="view-content">
+    <!-- Admin catalogue Section -->
+    <div id="catalougeOveriew">
+        <h2>Katalog Oversigt</h2>
+        
+        <article id="adminCatalogueOverview">
+        </article>
+        <h3>Opret nyt produkt til kataloget</h3>
+        <article>
+
+        <form id="addToCatalogueForm">
+
+         <label for="catalogueTitle">Produktnavn</label>
+                <input
+                  type="text"
+                  id="catalogueTitle"
+                  name="title"
+                  placeholder="Produktnavn"
+                  required
+                />
+
+        <label for="stockCategory">Kategori</label>
+                <select name="category" id="stockCategory">
+                <option value= "Bygninger" >Bygninger</option>
+                <option value="Dyr">Dyr</option>
+                <option value="Eventyr">Fantasy</option>
+                <option value="Sci-fi">Science-Fiction</option>
+                </select>
+
+
+
+        <label for="standardWeight">Standard Vægt</label>
+                <input
+                  type="text"
+                  id="standardWeight"
+                  name="weight"
+                  placeholder="000"
+                  pattern="[0-9]{1,4}"
+                  required
+                />                
+                
+        <label for="standardSize">Standard Højde</label>
+                <input
+                  type="text"
+                  id="standardSize"
+                  name="size"
+                  placeholder="00"
+                  pattern="[0-9]{1,3}"
+                  required
+                />
+
+
+        <label for="itemDescription">Produktbeskrivelse</label>
+                <input
+                  type="text"
+                  id="itemDescription"
+                  name="description"
+                  placeholder="Indsæt en lille beskrivese"
+                  required
+                />                
+
+
+        <label for="imageLink">Billede-link</label>
+                <input
+                  type="text"
+                  id="imageLink"
+                  name="image"
+                  placeholder="Indsæt et link"
+                  required
+        
+                  />
+        <label for="active">Aktiv</label>
+                <select name="active" id="active">
+                  <option value="1">Aktiv</option>
+                  <option value="0">Inaktiv</option>
+                </select>                
+        <button type="submit"  class="btn_submit">Opret produkt</button>
+
+
+        </form>
+       </article>
+
+       <article>
+        <h3>Opdater et produkt</h3>
+        <form id="updateCatalogueForm">
+
+         <label for="catalogueTitle">Produktnavn</label>
+                <input
+                  type="text"
+                  id="updateCatalogueTitle"
+                  name="title"
+                  placeholder="Produktnavn"
+                  required
+                />
+
+        <label for="stockCategory">Kategori</label>
+                <select name="category" id="updateStockCategory">
+                <option value= "Bygninger" >Bygninger</option>
+                <option value="Dyr">Dyr</option>
+                <option value="Eventyr">Fantasy</option>
+                <option value="Sci-fi">Science-Fiction</option>
+                </select>
+
+
+
+        <label for="standardWeight">Standard Vægt</label>
+                <input
+                  type="text"
+                  id="updateStandardWeight"
+                  name="weight"
+                  placeholder="000"
+                  pattern="[0-9]{1,4}"
+                  required
+                />                
+                
+        <label for="standardSize">Standard Højde</label>
+                <input
+                  type="text"
+                  id="updateStandardSize"
+                  name="size"
+                  placeholder="00"
+                  pattern="[0-9]{1,3}"
+                  required
+                />
+
+
+        <label for="itemDescription">Produktbeskrivelse</label>
+                <input
+                  type="text"
+                  id="updateItemDescription"
+                  name="description"
+                  placeholder="Indsæt en lille beskrivese"
+                  required
+                />                
+
+
+        <label for="imageLink">Billede-link</label>
+                <input
+                  type="text"
+                  id="updateImageLink"
+                  name="image"
+                  placeholder="Indsæt et link"
+                  required
+        
+                  />
+        <label for="active">Aktiv</label>
+                <select name="active" id="updateActive">
+                  <option value="1">Aktiv</option>
+                  <option value="0">Inaktiv</option>
+                </select>                
+        <button type="submit"  class="btn_update_catalogue btn_submit">Opdater produkt</button>
+
+
+        </form>
+       </article>
+      
+       <container id="productOverview" class="product-catalog-grid"> Hele Kataloget </container>
+
+
+
+        <div id="updateCatalougeForm">
+          <dialog id="updateItemModal" class="dialog-window">
+    <article>  
+    
+    // Admin catalogue update form
+    <form id="updateCatalogueForm">
+      <label for="title">Title:</label>
+      <input
+        type="text" 
+        id="titleUpdate" 
+        name="title" required>
+
+      <label for="standardSize">Standard Size:</label>
+      <input 
+        type="text" 
+        id="standardSizeUpdate" 
+        name="standardSize" required/>
+
+      <label for="standardWeight">Standard Weight:</label>
+      <input 
+        type="text" 
+        id="standardWeightUpdate" 
+        name="standardWeight" required/>
+
+      <label for="itemDescription">Item Description:</label>
+      <textarea 
+        id="itemDescriptionUpdate" 
+        name="itemDescription" 
+        required>
+      </textarea>
+
+      <label for="image">Image Link:</label>
+      <input 
+        type="text" 
+        id="imageUpdate" 
+        name="image" 
+        required/>
+
+      <label for="category">Category:</label>
+      <input 
+        type="text" 
+        id="categoryUpdate" 
+        name="category" 
+        required/>
+
+      <!-- Id er et gemt input -->
+      <input type="hidden" id="itemIdUpdate" name="itemId">
+
+      <button type="submit" class="other-btn">Update Item</button>
+      <button type="button" id="btn-cancel-update" class="other-btn">Cancel</button>
+    </form>
+  </article>
+</dialog>
+        </div>
+
+
+          <dialog id="dialog-delete-catalouge-item">
+          <p>Tryk "Slet produkt" for at bekræftige sletning.<br>OBS! Du kan kun slette en vare der ikke har været solgt.<br>Har produktet været solgt kan du sætte det til inaktivt"</p>
+          <button id="btn-delete-catalouge-item-confirm" class="change_cursor_to_a_pointer_on_hover">Slet</button>
+        <form method="dialog" >
+          <button class="change_cursor_to_a_pointer_on_hover">Luk vindue</button>
+        </form>
+      </dialog>
+
+    </div>
+        </section>
+
+        <!-- Section stock -->
+        <section id="stock" class="view-content">
+            
+    <div id="stockMaterialOveriew" >
+      <h2>Lager Status</h2> 
+      
+      <table id="stockOverviewTable">
+        <thead>
+          <tr>
+            <th>Materiale</th>
+            <th>Egenskab</th>
+            <th>Farve</th>
+            <th>Mængde Tilgængelig</th>
+            <th>Status</th>
+            <th>Salgspris</th>
+            <th>Opdater</th>
+          </tr>
+        </thead>
+        <tbody id="adminStockTableBody">
+        </tbody>
+      </table> 
+      
+  <!-- Admin Update Stock Form -->
+        <form id="updateMaterialForm">
+
+          <h3>  Opdater Materialer   </h3>
+            <label for="StockName">Materiale kendetegn</label>
+            <input type="text" id="catalogueName" name="name" placeholder="Fks. blød" required/>
+
+            <label for="stockMaterial">Materiale</label>
+                <select name="material" id="minAmountStock">
+                <option value= "PLA" >PLA</option>
+                <option value="ABS">ABS</option>
+                <option value="TPU">TPU<ption>
+                </select>
+
+            <label for="stockColour">Farve</label>
+                <input type="text" id="stockColour" name="colour"
+                  placeholder=" fks ... Rød"
+                  required
+                />                
+                
+            <label for="amountInStock">Lagerbeholdning</label>
+                <input
+                  type="text"
+                  id="amountInStock"
+                  name="gramInStock"
+                  placeholder="mængde i gram"
+                  required
+                />
+
+            <label for="salesPrice">salgspris</label>
+                <input
+                  type="text"
+                  id="salesPrice"
+                  name="salesPrice"
+                  placeholder="pris i DKK"
+                  required
+                />
+
+            <label for="minAmountStock">Salgs Status</label>
+                <select name="active" id="active">
+                <option value= 0 > Udsolgt </option>
+                <option value= 1 > På Lager </option>
+                </select>
+
+            <button type="submit" class="btn_update_stock btn_submit">Opdater</button>
+        </form>
+      </div>
+
+      <!-- stock material succesfully updated dialog window -->
+    <dialog id="successfull-stock-update-dialog" class="dialoge-window">
+      <div id="successfull-stock-update-div">Du har opdateret et materiale i lagerbeholdningen</div>
+      <button id="btn-close-update-dialog" class="other-btn">Luk</button>
+    </dialog>
+
+        </section>
+
+        <!-- Section customer -->
+        <section id="customer" class="view-content">Kunder</section>
+
+        <!-- Section customer -->
+        <section id="finance" class="view-content"> 
+          <!-- Route example: http://127.0.0.1:4811/finance?startDate=2024-01-01&endDate=2024-01-30 -->
+                      <article>
+              <h3>Finans</h3>
+              <p>Her kan du tjekke omsætningen<br>
+              Vælg start dag og slut dag:
+              </p>
+              </article>
+            <form id="finance-form">
+            <div class="form-group">
+              <label for="startDate" class="finance-form-label">Start dag:</label>
+              <input type="date" id="startDate" name="startDate" required class="finance-form-input">
+            </div>
+            <div class="form-group">
+              <label for="endDate" class="finance-form-label">Slut dag:</label>
+              <input type="date" id="endDate" name="endDate" required class="finance-form-input">
+            </div>
+            <div class="form-group">
+              <button type="submit" id="finance-button">Vis omsætning</button>
+            </div>
+            </form>
+        </section>
+
+        <!-- Section customer -->
+        <section id="settings" class="view-content">Indstillinger</section>
+
+      </main>
+      
+      <!-- Footer -->
+      <footer></footer>
+    </div>
+
+<script src="./admin-controller/admin-main.js" type="module"></script>
+</body>
+</html>
+
+
