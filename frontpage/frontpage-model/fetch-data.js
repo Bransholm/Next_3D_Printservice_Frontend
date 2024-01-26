@@ -8,7 +8,7 @@ import {
   nameValue,
 } from "../frontpage-controller/find-order-site.js";
 
-const endpoint = "https://3dprintservice.azurewebsites.net/";
+const endpoint = "https://again3dprintservice.azurewebsites.net/";
 
 async function fetchOrdersData() {
   const response = await fetch(`${endpoint}/viewOrdrer?ordrer=${nameValue}&email=${emailValue}`);

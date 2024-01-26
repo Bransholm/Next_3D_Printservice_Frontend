@@ -1,3 +1,3 @@
-const endpoint = "https://3dprintservice.azurewebsites.net/";
+const endpoint = "https://again3dprintservice.azurewebsites.net/";
 
 export { endpoint };
