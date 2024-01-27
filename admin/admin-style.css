@@ -104,10 +104,11 @@ td {
 /* finance */
 .finance-overview-container {
   margin: 2px;
+  padding-top: 20px;
 }
 
-/* catalouge */
 
+/* catalouge */
 form {
   max-width: 600px;
 }
