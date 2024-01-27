@@ -7,9 +7,10 @@ export class catalogueItem {
     this.itemDescription = catalogueObject.ItemDescription;
     this.imageLink = catalogueObject.ImageLink;
     this.category = catalogueObject.Category;
+    this.active = catalogueObject.Active;
   }
 
- // contains the DOM for the admin site  
+  // contains the DOM for the admin site
   adminRender() {
     const adminCatalogueHTML =
       /*html*/
