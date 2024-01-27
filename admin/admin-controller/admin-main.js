@@ -6,7 +6,9 @@ import { createNewCatalogueItem } from "./create-update-forms/create-new-catelog
 import {
   getCatalogueData,
   getStockData,
+  fetchCustomersData,
 } from "../admin-model/fetch-data-admin.js";
+
 import { catalogueItem } from "../admin-view/admin-view-render-classes/catalogue-class.js";
 import { createClassInstances } from "./instance-creator-admin.js";
 import { callRenderMethodeForCatalogueItems } from "./render-controller-admin.js";
@@ -17,6 +19,7 @@ import {
   submitStockUpdate,
 } from "./update-stock-materials.js";
 import { closeUpdateCompleteWindow } from "../admin-view/stock-update-dialog.js";
+import { showCustomers } from "./show-Customers.js";
 
 // initiate the admin site
 function startAdmin() {
@@ -29,6 +32,14 @@ function startAdmin() {
   getStockMaterialData();
   // fetches the catalouge items data
   getCatalogueItemsData();
+  getCustomersData();
+}
+
+async function getCustomersData() {
+  const customersData = await fetchCustomersData();
+  //showStockMaterials(stockMaterialData);
+  console.log("Customers data", customersData);
+  showCustomers(customersData);
 }
 
 // gest the catalouge data and passes it to the show-catalgouge function

@@ -12,6 +12,15 @@ async function getCatalogueData() {
   return catalogueData;
 }
 
+// fetching customers data
+async function fetchCustomersData() {
+  console.log("get customers data");
+
+  const response = await fetch(`${endpoint}/viewCustomers`);
+  const customersData = await response.json();
+  return customersData;
+}
+
 // fetching stock data
 async function getStockData() {
   console.log("get data to admin");
@@ -40,6 +49,7 @@ async function getfinanceData() {
 }
 
 export {
+  fetchCustomersData,
   getCatalogueData,
   getStockData,
   getAvailableStockData,
