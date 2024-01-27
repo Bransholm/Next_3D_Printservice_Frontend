@@ -1,19 +1,19 @@
 function autoFillSettingsForm(settings) {
   const form = document.querySelector("#settings-form")
-
-  const form.X.value = settings.Tax;
-  const form.X.value = settings.ShippingPrice;
-  const form.X.value = settings.MobilePayNumber;
-  const form.X.value= settings.PriceCalculationForm;
+  form.tax.value = settings.Tax;
+  form.shippingPrice.value = settings.ShippingPrice;
+  form.mobilePayNumber.value = settings.MobilePayNumber;
+  form.priceCalculationForm.value = settings.PriceCalculationForm;
 }
 
+// retreive the input from the setting forms
 function retrieveUpdateSettingsInput(event) {
   event.preventDefault();
   const form = document.querySelector("#settings-form");
-  const tax = form.X.value;
-  const shippingPrice = form.X.value;
-  const mobilePayNumber = form.X.value;
-  const priceCalculationForm = form.X.value;
+  const tax = form.tax.value;
+  const shippingPrice = form.shippingPrice.value;
+  const mobilePayNumber = form.mobilePayNumber.value;
+  const priceCalculationForm = form.priceCalculationForm.value;
 
 const settingsUpdateObject = {
 tax,
