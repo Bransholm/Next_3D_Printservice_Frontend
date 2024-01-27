@@ -2,8 +2,6 @@
 window.addEventListener("load", startAdmin);
 
 import { startViews } from "../admin-view/spa-router.js";
-
-// Imports the update route for strockMaterials
 import { createNewCatalogueItem } from "./create-update-forms/create-new-catelogue-item.js";
 import {
   getCatalogueData,
@@ -18,66 +16,65 @@ import {
   updateStockButtonClicked,
   submitStockUpdate,
 } from "./update-stock-materials.js";
-
 import { closeUpdateCompleteWindow } from "../admin-view/stock-update-dialog.js";
 
+// initiate the admin site
 function startAdmin() {
   console.log("Admin site is live");
+  // sets the SPA for the admin site 
   startViews();
-  startEvendListernes();
-
-  // getDataController();
+  // activates the event listeners for the admin sitre 
+  startEventListernes();
+  // fetches the stock material data
   getStockMaterialData();
+  // fetches the catalouge items data
   getCatalogueItemsData();
 }
 
+// gest the catalouge data and passes it to the show-catalgouge function
 async function getCatalogueItemsData() {
   const catalougeItemObjects = await getCatalogueData();
   showCatalouge(catalougeItemObjects);
 }
 
+// gest the stock data and passes it to the show-stock-matieral function
 async function getStockMaterialData() {
   const stockMaterialData = await getStockData();
   showStockMaterials(stockMaterialData);
 }
 
-function startEvendListernes() {
+// adds the eventlisternes for buttons across the admin site
+function startEventListernes() {
   document
     .querySelector("#addToCatalogueForm")
     .addEventListener("submit", createNewCatalogueItem);
 
-  // submit update...
+  // adds the eventlisterne for the update
   document
     .querySelector("#updateMaterialForm")
     .addEventListener("submit", submitStockUpdate);
 
+  // adds the close on clikc event for the update stock material dialog 
   document
     .querySelector("#btn-close-update-dialog")
     .addEventListener("click", closeUpdateCompleteWindow);
 
+  // adds the submit event for the finance form
   document
     .querySelector("#finance-form")
     .addEventListener("submit", submitFianceDates);
 }
 
-// fetching genereal data
-// async function getDataController() {
-//   const stockMaterialData = await getStockData();
-//   console.log("material list: ", stockMaterialData);
 
-//   const catalougeItemObjects = await getCatalogueData();
-//   showCatalouge(catalougeItemObjects);
-//   showStockMaterials(stockMaterialData);
-// }
-
-// showing the catalogue to the admin site
+// shows the catalogue items to the admin 
 function showCatalouge(catalougeItemObjects) {
+  // takes the list of catalogue-data and the catalouge-item-class as argument and returns a list of catalouge-class instances
   const catalougueClassList = createCatalogClasses(
     catalougeItemObjects,
     catalogueItem
   );
-  console.log("Der er et fetch");
-  callRenderMethodeForCatalogueItems(catalougueClassList, "productOverview");
+  // takes the list of catalogue-class instances and call their render methods
+  callRenderMethodeForCatalogueItems(catalougueClassList);
 }
 
 export {
@@ -85,4 +82,3 @@ export {
   getStockMaterialData,
   getCatalogueItemsData,
 };
-// export { startAdmin as launchAdminFunctions };
