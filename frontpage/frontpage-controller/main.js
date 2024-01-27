@@ -4,55 +4,36 @@ import { startViews } from "../frontpage-view/spa-router.js";
 import {
   getCatalogueData
 } from "../frontpage-model/fetch-data.js";
-import { catalogueItem } from "../frontpage-view/view-render-classes/catalogue-class.js";
-
-// Modules for testing af klasse opbygning...
-// import { createCatalogClasses } from "./classes-test-doc.js";
 import { createCatalogueClasses } from "./instance-creator.js";
 import { callRenderMethod } from "./render-controller.js";
-
 import { filterContent, searchContent } from "./catalogue-filter-search.js";
-
-// test-function that creates a new order!
 import { launchOrderSite } from "./order-site.js";
-
 import { findExistingOrder } from "./find-order-site.js";
 
 window.addEventListener("load", start);
 
 function start() {
   startViews();
+  // activates the eventlisteners on the webshop
   activateEventListeners();
-  console.log("Hello Team10");
-  // Tester om man kan hente data - Lukas
+  // retrieves all available catalogue items
   getAllData();
-  // testMakeOrder();
-  // testStartNewOrder();
+  // starts the check-out-site functions
   launchOrderSite();
 }
 
-function testStartNewOrder() {
-  document
-    .querySelector("#btn_place_order")
-    .addEventListener("click", launchOrderSite);
-}
-
-// Dette er en test funktion der skal se om vi kan hente data:
 async function getAllData() {
   const catalougeItemObjects = await getCatalogueData();
-  // const x = await getStockData();
-
-  // showSelectableMaterials(stockInStorage);
-
   showCatalougeToCustomers(catalougeItemObjects);
 }
 
+// takes the catalouge-data as a parameter, creates an instance of the catalogue-class and call the render-method
 function showCatalougeToCustomers(catalougeItemObjects) {
   const classList = createCatalogueClasses(catalougeItemObjects);
-
-  console.log("Der er et fetch");
+  // call the render method for the entire list of catalogue-instances
   callRenderMethod(classList, "product_catalogue");
 }
+
 
 function activateEventListeners() {
   document.querySelector("#faq-link").addEventListener("click", showDialogFaq);
