@@ -1,22 +1,15 @@
-// Denne funktion laver klasserne for vores katalog-vare
-export function createCatalogClasses(dataList, classType) {
-  console.log("No.1 createCatalogClasses");
-  // Opret en tom liste så hvert objekt vi fetcher kan komme ind som en instans af en klasse
-  const instanceList = [];
+import { catalogueItem } from "../frontpage-view/view-render-classes/catalogue-class.js";
 
-  // Loop på listen af vores fetchede data:
-  for (const object of dataList) {
-    // Hvert objekt i listen bliver nu lavet til en ny instans.
-    const newInstance = new classType(object);
+// creates an array of catalogue class intances
+export function createCatalogueClasses(catalogueDataList) {
+  const catalogueInstanceList = [];
 
-    // Enstansen bliver puttet i vores nye liste.
-    instanceList.push(newInstance);
+  for (const catalogueObject of catalogueDataList) {
+    // creates a new instance of the cusomer class based on the catalogue object
+    const newCatalogueInstance = new catalogueItem(catalogueObject);
+
+    // adds the newly created instance to the 'catalogueInstanceList' list
+    catalogueInstanceList.push(newCatalogueInstance);
   }
-  console.log("classlist: ", instanceList);
-
-  //Her køres render metoden for alle vores instances af catalogue klassen.
-  return instanceList;
-
-  // Her laver jeg en instance af Product...
-  // createInstanceOfProdut();
+  return catalogueInstanceList;
 }

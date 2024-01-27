@@ -2,17 +2,13 @@
 
 import { startViews } from "../frontpage-view/spa-router.js";
 import {
-  getCatalogueData,
-  getStockData,
-  getAvailableStockData,
+  getCatalogueData
 } from "../frontpage-model/fetch-data.js";
 import { catalogueItem } from "../frontpage-view/view-render-classes/catalogue-class.js";
 
-// import { catalogueData, stockData } from "../../tempoary-data-doc.js";
-
 // Modules for testing af klasse opbygning...
 // import { createCatalogClasses } from "./classes-test-doc.js";
-import { createCatalogClasses } from "./instance-creator.js";
+import { createCatalogueClasses } from "./instance-creator.js";
 import { callRenderMethod } from "./render-controller.js";
 
 import { filterContent, searchContent } from "./catalogue-filter-search.js";
@@ -52,7 +48,7 @@ async function getAllData() {
 }
 
 function showCatalougeToCustomers(catalougeItemObjects) {
-  const classList = createCatalogClasses(catalougeItemObjects, catalogueItem);
+  const classList = createCatalogueClasses(catalougeItemObjects);
 
   console.log("Der er et fetch");
   callRenderMethod(classList, "product_catalogue");
@@ -89,7 +85,5 @@ function showDialogTradeingTerms() {
 function showDialogDataPolicyLink() {
   document.querySelector("#dialog-data-policy").showModal();
 }
-
-
 
 export { showCatalougeToCustomers };
