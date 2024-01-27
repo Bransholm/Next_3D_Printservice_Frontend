@@ -101,13 +101,6 @@ td {
   font-weight: bold;
 }
 
-/* finance */
-.finance-overview-container {
-  margin: 2px;
-  padding-top: 20px;
-}
-
-
 /* catalouge */
 form {
   max-width: 600px;
@@ -137,7 +130,7 @@ select {
   margin-top: 10px;
 }
 
-/* View order */
+/* finance */
 .finance-form-label {
   display: inline-block;
   width: 80px;
@@ -151,6 +144,34 @@ select {
 #finance-button {
   margin-left: 100px;
   margin-top: 5px;
+}
+
+.finance-overview-container {
+  margin: 2px;
+  padding-top: 20px;
+}
+
+
+/* settings */
+.settings-form-label {
+  display: inline-block;
+  width: 80px;
+  padding-bottom: 6px;
+  padding-right: 40px;
+}
+
+.settings-form-input {
+  width: 120px;
+}
+
+#settings-button {
+  margin-left: 140px;
+  margin-top: 5px;
+}
+
+.settings-overview-container {
+  margin: 2px;
+  padding-top: 20px;
 }
 
 /* Buttons */
