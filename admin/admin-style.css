@@ -90,6 +90,11 @@ td {
   vertical-align: inherit;
 }
 
+/* finance */
+.finance-overview-container {
+  margin: 2px;
+}
+
 /* catalouge */
 
 form {
