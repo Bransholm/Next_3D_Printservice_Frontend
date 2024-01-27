@@ -88,7 +88,7 @@ function startEventListernes() {
     .addEventListener("submit", submitFianceDates);
 
   document
-    .querySelector("#XXXXXXXXXXXX")
+    .querySelector("#settings-form")
     .addEventListener("submit", submitUpdatedSettings);
 }
 
