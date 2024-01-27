@@ -7,6 +7,7 @@ import {
   getCatalogueData,
   getStockData,
   fetchCustomersData,
+  fetchSystemVariables,
 } from "../admin-model/fetch-data-admin.js";
 
 import { catalogueItem } from "../admin-view/admin-view-render-classes/catalogue-class.js";
@@ -20,6 +21,8 @@ import {
 } from "./update-stock-materials.js";
 import { closeUpdateCompleteWindow } from "../admin-view/stock-update-dialog.js";
 import { showCustomers } from "./show-Customers.js";
+import { showSettings } from "./show-settings.js";
+import { submitUpdatedSettings } from "./update-settings-variables.js";
 
 // initiate the admin site
 function startAdmin() {
@@ -32,23 +35,32 @@ function startAdmin() {
   getStockMaterialData();
   // fetches the catalouge items data
   getCatalogueItemsData();
+  // fetches the customers data
   getCustomersData();
+  // fetches the settings-variables
+  getSystemSettingsData();
 }
 
+// retrieves the settings data and passes it to the settings-view
+async function getSystemSettingsData() {
+  const settingsData = await fetchSystemVariables();
+  showSettings(settingsData);
+}
+
+// get the customers data and passes it to the show-cusotmer function
 async function getCustomersData() {
   const customersData = await fetchCustomersData();
-  //showStockMaterials(stockMaterialData);
   console.log("Customers data", customersData);
   showCustomers(customersData);
 }
 
-// gest the catalouge data and passes it to the show-catalgouge function
+// get the catalouge data and passes it to the show-catalgouge function
 async function getCatalogueItemsData() {
   const catalougeItemObjects = await getCatalogueData();
   showCatalouge(catalougeItemObjects);
 }
 
-// gest the stock data and passes it to the show-stock-matieral function
+// get the stock data and passes it to the show-stock-matieral function
 async function getStockMaterialData() {
   const stockMaterialData = await getStockData();
   showStockMaterials(stockMaterialData);
@@ -74,6 +86,10 @@ function startEventListernes() {
   document
     .querySelector("#finance-form")
     .addEventListener("submit", submitFianceDates);
+
+  document
+    .querySelector("#XXXXXXXXXXXX")
+    .addEventListener("submit", submitUpdatedSettings);
 }
 
 // shows the catalogue items to the admin
