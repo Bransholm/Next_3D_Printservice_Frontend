@@ -48,10 +48,19 @@ async function getfinanceData() {
   return data;
 }
 
+async function fetchSystemVariables() {
+  const response = await fetch(`${endpoint}/variables`);
+  const variableData = await response.json();
+  return variableData;
+}
+
+
+
 export {
   fetchCustomersData,
   getCatalogueData,
   getStockData,
   getAvailableStockData,
   getfinanceData,
+  fetchSystemVariables
 };
