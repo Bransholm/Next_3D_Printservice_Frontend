@@ -1,7 +1,13 @@
-// this creates an instancee of products 
+// this creates an instancee of products
+
+/*
+HUSK FRONT ENDEN!!!
+  Vi kalder det i showCatalouge - admin main
+  Vi kalder det i show-stock-materials -
+*/
 
 // this function create classes for catalogue items
-export function createCatalogClasses(dataList, classType) {
+export function createClassInstances(dataList, classType) {
   const instanceList = [];
 
   // Loop to fetch the data

@@ -8,7 +8,7 @@ import {
   getStockData,
 } from "../admin-model/fetch-data-admin.js";
 import { catalogueItem } from "../admin-view/admin-view-render-classes/catalogue-class.js";
-import { createCatalogClasses } from "./instance-creator-admin.js";
+import { createClassInstance } from "./instance-creator-admin.js";
 import { callRenderMethodeForCatalogueItems } from "./render-controller-admin.js";
 import { submitFianceDates } from "./finance-site.js";
 import { showStockMaterials } from "./show-stock-materials.js";
@@ -21,9 +21,9 @@ import { closeUpdateCompleteWindow } from "../admin-view/stock-update-dialog.js"
 // initiate the admin site
 function startAdmin() {
   console.log("Admin site is live");
-  // sets the SPA for the admin site 
+  // sets the SPA for the admin site
   startViews();
-  // activates the event listeners for the admin sitre 
+  // activates the event listeners for the admin sitre
   startEventListernes();
   // fetches the stock material data
   getStockMaterialData();
@@ -54,7 +54,7 @@ function startEventListernes() {
     .querySelector("#updateMaterialForm")
     .addEventListener("submit", submitStockUpdate);
 
-  // adds the close on clikc event for the update stock material dialog 
+  // adds the close on clikc event for the update stock material dialog
   document
     .querySelector("#btn-close-update-dialog")
     .addEventListener("click", closeUpdateCompleteWindow);
@@ -65,11 +65,10 @@ function startEventListernes() {
     .addEventListener("submit", submitFianceDates);
 }
 
-
-// shows the catalogue items to the admin 
+// shows the catalogue items to the admin
 function showCatalouge(catalougeItemObjects) {
   // takes the list of catalogue-data and the catalouge-item-class as argument and returns a list of catalouge-class instances
-  const catalougueClassList = createCatalogClasses(
+  const catalougueClassList = createClassInstance(
     catalougeItemObjects,
     catalogueItem
   );

@@ -1,19 +1,17 @@
 let stockClassList;
-import { createCatalogClasses } from "./instance-creator-admin.js";
+import { createClassInstance } from "./instance-creator-admin.js";
 import { stockMaterial } from "../admin-view/admin-view-render-classes/stock-class.js";
-import {updateStockButtonClicked} from "./admin-main.js"
-
+import { updateStockButtonClicked } from "./admin-main.js";
 
 function showStockMaterials(stockMaterialData) {
-  // takes the list of stock-data and the stock-class as argument and returns a list of stock-class instances   
-  stockClassList = createCatalogClasses(stockMaterialData, stockMaterial);
-  // takes the list of stock-class instnances and calls their render methods 
+  // takes the list of stock-data and the stock-class as argument and returns a list of stock-class instances
+  stockClassList = createClassInstance(stockMaterialData, stockMaterial);
+  // takes the list of stock-class instnances and calls their render methods
   renderStocks(stockClassList);
 }
 
-// creates the DOM for the stock-overview 
+// creates the DOM for the stock-overview
 function renderStocks(listOfInstances) {
-  console.log("No3. CallRenderMethod");
   document.querySelector(`#adminStockTableBody`).innerHTML = "";
   // loops the list of instnaces and call the render metod
   for (const stockInstance of listOfInstances) {
@@ -34,7 +32,5 @@ function eventListenerForStockUpdateButton(classInstance) {
     .querySelector(`#adminStockTableBody tr:last-child .btn_update_stock`)
     .addEventListener("click", () => updateStockButtonClicked(classInstance));
 }
-
-
 
 export { showStockMaterials };
