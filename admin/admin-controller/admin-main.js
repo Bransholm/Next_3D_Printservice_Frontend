@@ -8,7 +8,9 @@ import { createNewCatalogueItem } from "./create-update-forms/create-new-catelog
 import {
   getCatalogueData,
   getStockData,
+  fetchCustomersData,
 } from "../admin-model/fetch-data-admin.js";
+
 import { catalogueItem } from "../admin-view/admin-view-render-classes/catalogue-class.js";
 import { createCatalogClasses } from "./instance-creator-admin.js";
 import { callRenderMethodeForCatalogueItems } from "./render-controller-admin.js";
@@ -20,6 +22,7 @@ import {
 } from "./update-stock-materials.js";
 
 import { closeUpdateCompleteWindow } from "../admin-view/stock-update-dialog.js";
+import { showCustomers } from "./show-Customers.js";
 
 function startAdmin() {
   console.log("Admin site is live");
@@ -29,6 +32,14 @@ function startAdmin() {
   // getDataController();
   getStockMaterialData();
   getCatalogueItemsData();
+  getCustomersData();
+}
+
+async function getCustomersData() {
+  const customersData = await fetchCustomersData();
+  //showStockMaterials(stockMaterialData);
+  console.log("Customers data", customersData);
+  showCustomers(customersData);
 }
 
 async function getCatalogueItemsData() {
