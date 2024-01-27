@@ -1,11 +1,10 @@
-// import { stringify } from "querystring";
-const endpoint = "http://localhost:4811/";
 import { postCatelogueItem } from "../../admin-model/backend-routes/catalouge-routes/catalogue-post.js";
 import { getCatalogueItemsData } from "../admin-main.js";
 
-// This function creates a new catalogue item - is only accessible for the admin.
+// retrieves the user input and creates a new catalouge item
 async function createNewCatalogueItem(event) {
-  // Er det nu .target.value?
+  event.preventDefault();
+
   const catelogueForm = event.target;
 
   // WHERE IS THE ID in all of this??? The id is made through the route, which gives the newly created catalogue item
@@ -18,8 +17,7 @@ async function createNewCatalogueItem(event) {
   const category = catelogueForm.category.value;
   const active = Number(catelogueForm.active.value);
 
-  event.preventDefault();
-
+  // creates a new catalouge item
   const catalogueItem = createCatelogueItemProduct(
     title,
     standardSize,
@@ -29,14 +27,16 @@ async function createNewCatalogueItem(event) {
     category,
     active
   );
-  event.preventDefault();
 
+  // the catalogue item is send as an argument - the new catalouge item is created in the database
   const response = await postCatelogueItem(catalogueItem);
   if (response.ok) {
+    // fetches the updated catalogue item data
     getCatalogueItemsData();
   }
 }
 
+// return the data as an object
 function createCatelogueItemProduct(
   title,
   standardSize,
