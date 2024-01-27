@@ -1,5 +1,4 @@
 
-
 // this function create classes for catalogue items
 export function createClassInstances(dataList, classType) {
   const instanceList = [];
