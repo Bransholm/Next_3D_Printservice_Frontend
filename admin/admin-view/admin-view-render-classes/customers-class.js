@@ -15,7 +15,7 @@ class Customers {
           /*html*/
           `
             <article>
-                <div>Kunde id:${this.id}</div>
+                <div id="customers_customer_id_headLine">Kunde id:${this.id}</div>
                 <div>Fornavn: ${this.firstName}</div>
                 <div>Efternavn: ${this.lastName}</div>
                 <div>Adresse: ${this.adress}</div>

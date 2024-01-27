@@ -90,6 +90,17 @@ td {
   vertical-align: inherit;
 }
 
+/* Customers */
+#showCustomers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 40px;
+}
+
+#customers_customer_id_headLine {
+  font-weight: bold;
+}
+
 /* finance */
 .finance-overview-container {
   margin: 2px;
