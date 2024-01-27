@@ -387,8 +387,6 @@ export class product {
 
   // Set all the standard product values
   setDefaultProduct() {
-    // Sets the chosen amount to 1
-    // resetProductAmount();
     // Set the item size to fit the item.standardSize
     this.productSize = this.catalogueInfo.standardSize;
     // Set the size-slider value to the default size
