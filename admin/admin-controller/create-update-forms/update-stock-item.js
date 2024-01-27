@@ -1,14 +1,8 @@
+// autofills the update-material-form with the data from the selected stock material
 function updateStockDataAtofill(stockMaterial) {
   console.log(stockMaterial);
   const updateForm = document.querySelector("#updateMaterialForm");
-  // const x = event.target
 
-
-
-  // ---------------------------------------------- DEV NOTE: We changed minAmountReached = "1" to active = 1 ;
-  // Change it i  HTML and all JS... otherwise it will never work...
-
-  // Doublecheck if attirbute needs to be with capital sarting letter...
   updateForm.name.value = stockMaterial.name;
   updateForm.material.value = stockMaterial.material;
   updateForm.colour.value = stockMaterial.colour;
@@ -17,8 +11,7 @@ function updateStockDataAtofill(stockMaterial) {
   updateForm.salesPrice.value = stockMaterial.salesPrice;
 }
 
-/* ... */
-
+// retrieves the input-data from the update material form
 function stockUpdateInputData() {
   const form = document.querySelector("#updateMaterialForm");
   const name = form.name.value;
@@ -34,8 +27,8 @@ function stockUpdateInputData() {
     colour,
     gramInStock,
     active,
-    salesPrice
+    salesPrice,
   };
 }
 
-export { updateStockDataAtofill, stockUpdateInputData};
+export { updateStockDataAtofill, stockUpdateInputData };
