@@ -1,4 +1,3 @@
-// stores the item to be updated!
 let stockItemToUpdate;
 import {
   updateStockDataAtofill,
@@ -8,13 +7,13 @@ import { stockUpdateRoute } from "../admin-model/backend-routes/stock-put.js";
 import { showSuccessfullUpdate } from "../admin-view/stock-update-dialog.js";
 import { getStockMaterialData } from "./admin-main.js";
 
-// The function that update the selected stock material while pussing the update button
+// select the stock materiral to be updated
 function updateStockButtonClicked(instance) {
-  console.log("Update your materials! ", instance);
 
+  // select which stock-item is to be updated
   stockItemToUpdate = instance;
 
-  // autofills the stock-update-form
+  // takes the selected stock-item as an argument and autofills the stock-update-form
   updateStockDataAtofill(instance);
 }
 
@@ -22,19 +21,19 @@ function updateStockButtonClicked(instance) {
 async function submitStockUpdate(event) {
   event.preventDefault();
 
-  console.log("update data id:  ", stockItemToUpdate.id);
+  // retrieves the data from the stock-update-forms 
   const updateInputData = stockUpdateInputData();
   const id = stockItemToUpdate.id;
 
-  // console.log("the update: ", data);
+  // takes the updated-stock-data and the selected id as argument and updates the stock-maetrial
   const updateResponse = await stockUpdateRoute(updateInputData, id);
 
   if (updateResponse.ok) {
     console.log("things are okay!");
 
-    /* You chanced x from z to y */
-    // hent dataen og hvis det hele en gang til!
+    // shows the successfull update dialog
     showSuccessfullUpdate(updateInputData);
+    // fetches the updated stock data
     getStockMaterialData();
   }
 }
