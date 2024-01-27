@@ -1,11 +1,11 @@
 let stockClassList;
-import { createClassInstance } from "./instance-creator-admin.js";
+import { createClassInstances } from "./instance-creator-admin.js";
 import { stockMaterial } from "../admin-view/admin-view-render-classes/stock-class.js";
 import { updateStockButtonClicked } from "./admin-main.js";
 
 function showStockMaterials(stockMaterialData) {
   // takes the list of stock-data and the stock-class as argument and returns a list of stock-class instances
-  stockClassList = createClassInstance(stockMaterialData, stockMaterial);
+  stockClassList = createClassInstances(stockMaterialData, stockMaterial);
   // takes the list of stock-class instnances and calls their render methods
   renderStocks(stockClassList);
 }

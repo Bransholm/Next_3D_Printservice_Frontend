@@ -8,7 +8,7 @@ import {
   getStockData,
 } from "../admin-model/fetch-data-admin.js";
 import { catalogueItem } from "../admin-view/admin-view-render-classes/catalogue-class.js";
-import { createClassInstance } from "./instance-creator-admin.js";
+import { createClassInstances } from "./instance-creator-admin.js";
 import { callRenderMethodeForCatalogueItems } from "./render-controller-admin.js";
 import { submitFianceDates } from "./finance-site.js";
 import { showStockMaterials } from "./show-stock-materials.js";
@@ -68,7 +68,7 @@ function startEventListernes() {
 // shows the catalogue items to the admin
 function showCatalouge(catalougeItemObjects) {
   // takes the list of catalogue-data and the catalouge-item-class as argument and returns a list of catalouge-class instances
-  const catalougueClassList = createClassInstance(
+  const catalougueClassList = createClassInstances(
     catalougeItemObjects,
     catalogueItem
   );
