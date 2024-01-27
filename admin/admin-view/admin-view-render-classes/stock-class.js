@@ -9,6 +9,7 @@ export class stockMaterial {
     this.salesPrice = stockObject.SalesPrice;
   }
 
+  // show the availability of the material
   showStockAvailability() {
     if (this.active == 1) {
       return "På Lager";
@@ -17,6 +18,7 @@ export class stockMaterial {
     }
   }
 
+  // contains the stock-material DOM
   render() {
     const availability = this.showStockAvailability();
     const stockHTML =
