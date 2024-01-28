@@ -20,7 +20,6 @@ async function postOrderCustomerIsExisting(existingCustomerData) {
 
     return response;
   } catch (error) {
-    // Handle errors here
     console.error("Error:", error);
     throw error;
   }
