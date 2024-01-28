@@ -1,4 +1,4 @@
-// Import needed
+import { getOrdersData } from "./admin-main.js";
 
 // This file handles the orders filter on the admin Orders page
 
@@ -9,6 +9,7 @@ let ordersStatusValue = "ordered";
 async function ordersFilter(event) {
   ordersStatusValue = event.target.value;
   console.log(`ordersStatusValue: ${ordersStatusValue}`);
+  getOrdersData();
 }
 
 export { ordersFilter, ordersStatusValue };

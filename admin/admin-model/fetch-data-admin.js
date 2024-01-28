@@ -7,10 +7,11 @@ import {
   adminSearchValue,
   activeFilterValue,
 } from "../admin-controller/admin-catalogue-filter-search.js";
+import { ordersStatusValue } from "../admin-controller/orders-filter.js";
 
 async function fetchOrdersData() {
   console.log("get orders data to admin");
-  const response = await fetch(`${endpoint}/orders?status=ordered`);
+  const response = await fetch(`${endpoint}/orders?status=${ordersStatusValue}`);
   const ordersData = await response.json();
   return ordersData;
 }

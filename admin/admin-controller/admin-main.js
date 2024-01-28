@@ -30,7 +30,7 @@ import {
   adminSearchContent,
 } from "./admin-catalogue-filter-search.js";
 import { generateOrdersDom } from "../admin-view/oders-update-dom.js";
-import { ordersFilter, ordersStatusValue } from "./orders-filter.js";
+import { ordersFilter } from "./orders-filter.js";
 
 // initiate the admin site
 function startAdmin() {
