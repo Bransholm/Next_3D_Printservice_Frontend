@@ -1,6 +1,5 @@
 // disables the order-form input
 function disableCustomerOrderInput() {
-  // document.querySelector("#insert_orderinfo").prop("disabled", true);
   document.querySelector("#first_name_input").disabled = true;
   document.querySelector("#last_name_input").disabled = true;
   document.querySelector("#adress_input").disabled = true;

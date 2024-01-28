@@ -23,7 +23,6 @@ async function putExistingCustomer(data) {
 
     return response;
   } catch (error) {
-    // Handle errors here
     console.error("Error:", error);
     throw error;
   }

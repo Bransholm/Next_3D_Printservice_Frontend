@@ -1,4 +1,4 @@
-import { putOrderStatus } from "../admin-model/backend-routes/order-status-put.js";
+import { updateOrderStatusSelectorActivated } from "../admin-controller/update-order-status.js";
 
 function orderSelect(status) {
   const statusSelectHTML =
@@ -26,8 +26,24 @@ function returnZeroIfNull(input) {
   }
 }
 
+function formatDateTime(dateTimeString) {
+  const originalDateTime = new Date(dateTimeString);
+  const formattedDate = originalDateTime.toLocaleDateString("da-DK", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+  const formattedTime = originalDateTime.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return `${formattedDate} kl. ${formattedTime}`;
+}
+
 function generateOrdersDom(orderesList) {
-  document.querySelector("#orders-overview-body");
+  
+  document.querySelector("#orders-overview-body").innerHTML = "";
+
   for (const order of orderesList) {
     const orderHTML =
       /*html*/
@@ -35,7 +51,7 @@ function generateOrdersDom(orderesList) {
     <tr>
     <td>${order.Id}</td>
     <td>${order.customer_ID}</td>
-    <td>${order.TimeDate}</td>
+    <td>${formatDateTime(order.TimeDate)}</td>
     <td> ${order.DeliveryAdress} </td>
     <td>${order.DeliveryZipCode}</td>
     <td>${order.DeliveryCity}</td>
@@ -58,13 +74,6 @@ function generateOrdersDom(orderesList) {
         updateOrderStatusSelectorActivated(order.Id)
       );
   }
-}
-
-function updateOrderStatusSelectorActivated(id) {
-  const value = document.querySelector(".order-status-selector").value;
-  console.log("Select Changed ", id, value);
-
-  putOrderStatus();
 }
 
 export { generateOrdersDom };

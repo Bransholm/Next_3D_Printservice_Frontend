@@ -7,19 +7,14 @@ import { product } from "./product-customization-calss.js";
 // all the materials that are set as active
 let stockInStorage;
 
-// the pro
+
 let customizedProduct;
-// let selectedCatalougeItem;
 
 export async function viewButtonClicked(id) {
   console.log("what did I clicked ", id);
-  // selectedCatalougeItem = catalougeItem;
-  // Sets the id for the chosen catalogue item
-  // const catalogueId = instance.id;
 
   clearProductCustomizationSite();
 
-  // ------------------- DEV NOTE: skal vi fetche hver gang man trykker på knappen? Ja? ---------------------
   // Fetches all the stock materials that are not sold out
   stockInStorage = await getAvailableStockData();
   // console.log("The available stock", stockInStorage);
@@ -83,15 +78,6 @@ async function addProductToBasketBtnClicked() {
   addProductToBasket(customizedProduct);
   clearProductCustomizationSite();
 }
-
-
-  
-// function porductAddedToBasketMessageDialog(){
-// }
-
-// function closeProductAddedTobasketMessageDialog(){
-
-// }
 
 
 

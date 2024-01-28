@@ -141,4 +141,5 @@ export {
   getStockMaterialData,
   getCatalogueItemsData,
   getSystemSettingsData,
+  getOrdersData,
 };

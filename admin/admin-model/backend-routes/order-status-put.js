@@ -1,6 +1,6 @@
 import { endpoint } from "../../../frontpage/frontpage-model/endpoint.js";
 
-async function putOrderStatus(id, putData) {
+async function putOrderStatus(id, statusValue) {
   // console.log("PUTTING: ", data);
   try {
     console.log("the data id: ", id);
@@ -8,9 +8,8 @@ async function putOrderStatus(id, putData) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        // Add any additional headers if needed
       },
-      body: JSON.stringify(putData),
+      body: JSON.stringify(statusValue),
     });
 
     console.log(response);
@@ -23,7 +22,6 @@ async function putOrderStatus(id, putData) {
 
     return response;
   } catch (error) {
-    // Handle errors here
     console.error("Error:", error);
     throw error;
   }

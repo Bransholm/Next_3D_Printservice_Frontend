@@ -4,7 +4,6 @@
 import { fetchCustomerEmailData } from "../frontpage-model/fetch-data.js";
 // the shopping cart!
 import { shoppingCart } from "./product-customization-site/shopping-cart.js";
-import { clearShoppingCartHTML } from "./product-customization-site/shopping-cart.js";
 // imports the function that calculates total tax and price
 import { calculateTotalPrice } from "./product-customization-site/price-calculation.js";
 // import the rest-api from the model folder
@@ -89,31 +88,16 @@ async function findCustomerByEmail(event) {
     customerIsNew = true;
   }
 
-  // her skal vi så aktivere input feltet
   console.log("customer is new = ", customerIsNew);
   enableCustomerOrderInput();
 }
 
-// search_existing_customer_by_email_error_message
 
-// // set all the text inputs to blank
-// function clearOrderForm() {
-//   const form = document.querySelector("#order_details_form");
-
-//   form.firstName.value = " ";
-//   form.lastName.value = " ";
-//   form.adress.value = " ";
-//   form.zipCode.value = " ";
-//   form.city.value = " ";
-//   form.deliveryAdress.value = " ";
-//   form.deliveryZipCode.value = " ";
-//   form.deliveryCity.value = " ";
-// }
 
 function autofillCustomerInformation(retrievedCustomer) {
   const customer = retrievedCustomer[0];
   console.log("Here is the customer: ", customer);
-  // here we need to set the information in the customer automatically based on the retrived customer
+
   const form = document.querySelector("#order_details_form");
   customer_ID = customer.Id;
   form.firstName.value = customer.FirstName;
@@ -162,7 +146,6 @@ function submitOrderInformation(event) {
     console.log("the order line is: ", newOrderLine);
   }
 
-  //--- the object is with a capital
   const CustomerInfo = {
     id,
     firstName,
@@ -173,7 +156,7 @@ function submitOrderInformation(event) {
     email,
   };
 
-  // consitant typo all the way to the back-end
+ 
 
   const totals = calculateTotalPrice();
 

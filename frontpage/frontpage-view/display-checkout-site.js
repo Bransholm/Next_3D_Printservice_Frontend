@@ -5,7 +5,6 @@ import {
   clearShoppingCartHTML,
 } from "../frontpage-controller/product-customization-site/shopping-cart.js";
 
-//import showFinishPaymentScreen
 async function showPaymentScreen() {
   document.querySelector("#to-payment-info-link").click();
 

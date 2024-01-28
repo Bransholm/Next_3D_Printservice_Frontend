@@ -11,7 +11,6 @@ import { catalogueItem } from "../../frontpage-view/view-render-classes/catalogu
 import { stockInStorage } from "./product-customization.js";
 
 export class product {
-  // There needs to be an order id as well down the line...
   constructor(catalogueId) {
     this.catalogue_ID = catalogueId;
     this.stock_ID;
@@ -68,11 +67,9 @@ export class product {
   async initStockMaterial() {
     await this.setStockInfo(this.stock_ID);
 
-    // console.log("the stock class: ", this.stockInfo);
     this.colour = this.stockInfo.colour;
     this.name = this.stockInfo.name;
     this.matieral = this.stockInfo.material;
-    // this.renderCatalougeHTML = this.catalogueInfo.renderBasicInformation();
   }
 
   async setStockInfo(id) {
@@ -91,7 +88,8 @@ export class product {
     const newDataInstance = new stockMaterial(stockMaterialData);
     return newDataInstance;
   }
-  //-------------------------------------------------------------
+
+
   renderAmountSelectionSection() {
     const amountSelectionHTML = /*html*/ `
     <div id="selectAmount">Antal:
@@ -113,7 +111,6 @@ export class product {
   }
 
   renderCustomizationSite() {
-    // const oldHTML = this.renderCatalougeHTML;
 
     const productCustomizationSiteHTML =
       /*html*/
