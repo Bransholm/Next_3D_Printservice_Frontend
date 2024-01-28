@@ -26,15 +26,16 @@
       <!-- Main - Here is the content on the different pages in sections -->
       <main>
 
-        <!-- Section products -->
+        <!-- Section orders -->
         <section id="orders" class="view-content">Ordre</section>
 
         <!-- Section products -->
         <section id="products" class="view-content">
-    <!-- Admin catalogue Section -->
+    
+          <!-- Show admin catalogue -->
     <div id="catalougeOveriew">
-        <h2>Katalog Oversigt</h2>
-        
+        <h2>Produktoversigt</h2>
+
         <article id="adminCatalogueOverview">
         </article>
         <h3>Opret nyt produkt til kataloget</h3>
@@ -185,6 +186,23 @@
 
         </form>
        </article>
+
+       <!-- The admin dropdown active filter -->
+        <div id="admin-filter-search">
+        <container id="filter-active">
+        <label for="active-options">Filter aktive/inaktive:</label>
+        <select id="active-options">
+        <option value="1" selected>Aktive</option>
+        <option value="0">Inaktive</option>
+        </select>
+        </container>
+
+        <!-- The admin search bar -->
+        <container id="search-name"></container>
+        <input type="text" id="admin-search" placeholder="Søg...">
+        <button id="admin-search-button">Søg</button>
+        </container>
+        </div>
       
        <container id="productOverview" class="product-catalog-grid"> Hele Kataloget </container>
 
@@ -337,7 +355,7 @@
 
         <!-- Section customer -->
         <section id="customer" class="view-content">
-          <h3>Kundeoversigt</h3>
+          <h2>Kundeoversigt</h2>
           <div id="showCustomers"></div>
         </section>
 
@@ -345,7 +363,7 @@
         <section id="finance" class="view-content"> 
           <!-- Route example: http://127.0.0.1:4811/finance?startDate=2024-01-01&endDate=2024-01-30 -->
                       <article>
-              <h3>Finans</h3>
+              <h2>Finans</h2>
               <p>Her kan du tjekke omsætningen<br>
               Vælg start dag og slut dag:
               </p>
@@ -371,7 +389,7 @@
         <!-- Section customer -->
         <section id="settings" class="view-content">
           <article>
-              <h3>Indstillinger</h3>
+              <h2>Indstillinger</h2>
               <p>Her kan du ændre indstillingsværdierne:
               </p>
               </article>
