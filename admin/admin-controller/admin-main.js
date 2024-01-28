@@ -23,6 +23,7 @@ import { closeUpdateCompleteWindow } from "../admin-view/stock-update-dialog.js"
 import { showCustomers } from "./show-Customers.js";
 import { showSettings } from "./show-settings.js";
 import { submitUpdatedSettings } from "./update-settings-variables.js";
+import { submitCatalogueUpdate } from "./update-catalouge.js";
 
 // initiate the admin site
 function startAdmin() {
@@ -90,6 +91,10 @@ function startEventListernes() {
   document
     .querySelector("#settings-form")
     .addEventListener("submit", submitUpdatedSettings);
+
+  document
+    .querySelector("#updateCatalogueForm")
+    .addEventListener("submit", submitCatalogueUpdate);
 }
 
 // shows the catalogue items to the admin
