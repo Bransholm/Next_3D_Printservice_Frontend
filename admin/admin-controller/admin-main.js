@@ -8,6 +8,7 @@ import {
   getStockData,
   fetchCustomersData,
   fetchSystemVariables,
+  fetchOrdersData,
 } from "../admin-model/fetch-data-admin.js";
 
 import { catalogueItem } from "../admin-view/admin-view-render-classes/catalogue-class.js";
@@ -24,7 +25,11 @@ import { showCustomers } from "./show-Customers.js";
 import { showSettings } from "./show-settings.js";
 import { submitUpdatedSettings } from "./update-settings-variables.js";
 import { submitCatalogueUpdate } from "./update-catalouge.js";
-import { adminFilterContent, adminSearchContent } from "./admin-catalogue-filter-search.js";
+import {
+  adminFilterContent,
+  adminSearchContent,
+} from "./admin-catalogue-filter-search.js";
+import { generateOrdersDom } from "../admin-view/oders-update-dom.js";
 
 // initiate the admin site
 function startAdmin() {
@@ -41,6 +46,7 @@ function startAdmin() {
   getCustomersData();
   // fetches the settings-variables
   getSystemSettingsData();
+  getOrdersData();
 }
 
 // retrieves the settings data and passes it to the settings-view
@@ -52,7 +58,6 @@ async function getSystemSettingsData() {
 // get the customers data and passes it to the show-cusotmer function
 async function getCustomersData() {
   const customersData = await fetchCustomersData();
-  console.log("Customers data", customersData);
   showCustomers(customersData);
 }
 
@@ -66,6 +71,12 @@ async function getCatalogueItemsData() {
 async function getStockMaterialData() {
   const stockMaterialData = await getStockData();
   showStockMaterials(stockMaterialData);
+}
+
+async function getOrdersData() {
+  const ordersData = await fetchOrdersData();
+  console.log("orderes", ordersData);
+  generateOrdersDom(ordersData);
 }
 
 // adds the eventlisternes for buttons across the admin site
@@ -122,5 +133,5 @@ export {
   updateStockButtonClicked,
   getStockMaterialData,
   getCatalogueItemsData,
-  getSystemSettingsData
+  getSystemSettingsData,
 };
