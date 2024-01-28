@@ -8,7 +8,9 @@ import { adminSearchValue, activeFilterValue } from "../admin-controller/admin-c
 // fetching catalogue data
 async function getCatalogueData() {
   console.log("get data to admin");
-  const response = await fetch(`${endpoint}/adminCatalogue?active=${activeFilterValue}`);
+  const response = await fetch(
+    `${endpoint}/adminCatalogue?active=${activeFilterValue}&search=${adminSearchValue}`
+);
   const catalogueData = await response.json();
   return catalogueData;
 }
