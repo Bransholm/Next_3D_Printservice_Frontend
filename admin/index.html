@@ -27,7 +27,28 @@
       <main>
 
         <!-- Section orders -->
-        <section id="orders" class="view-content">Ordre</section>
+        <section id="orders" class="view-content">Ordre
+           <table id="orders-overview-table">
+        <thead>
+          <tr>
+            <th>Ordre Nr</th>
+            <th>Kunde Nr</th>
+            <th>Dato</th>
+            <th>Adresse</th>
+            <th>Post Nr</th>
+            <th>By</th>
+            <th>Pris</th>
+            <th>Moms</th>
+            <th>Porto</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="orders-overview-body">
+        </tbody>
+      </table> 
+        </section>
+
+      
 
         <!-- Section products -->
         <section id="products" class="view-content">
@@ -59,8 +80,6 @@
                 <option value="Eventyr">Fantasy</option>
                 <option value="Sci-fi">Science-Fiction</option>
                 </select>
-
-
 
         <label for="standardWeight">Standard Vægt</label>
                 <input
@@ -206,62 +225,6 @@
       
        <container id="productOverview" class="product-catalog-grid"> Hele Kataloget </container>
 
-
-
-        <!-- <div id="updateCatalougeForm">
-          <dialog id="updateItemModal" class="dialog-window">
-    <article>   -->
-    
-    <!-- // Admin catalogue update form
-    <form id="updateCatalogueForm">
-      <label for="title">Title:</label>
-      <input
-        type="text" 
-        id="titleUpdate" 
-        name="title" required>
-
-      <label for="standardSize">Standard Size:</label>
-      <input 
-        type="text" 
-        id="standardSizeUpdate" 
-        name="standardSize" required/>
-
-      <label for="standardWeight">Standard Weight:</label>
-      <input 
-        type="text" 
-        id="standardWeightUpdate" 
-        name="standardWeight" required/>
-
-      <label for="itemDescription">Item Description:</label>
-      <textarea 
-        id="itemDescriptionUpdate" 
-        name="itemDescription" 
-        required>
-      </textarea>
-
-      <label for="image">Image Link:</label>
-      <input 
-        type="text" 
-        id="imageUpdate" 
-        name="image" 
-        required/>
-
-      <label for="category">Category:</label>
-      <input 
-        type="text" 
-        id="categoryUpdate" 
-        name="category" 
-        required/> -->
-
-      <!-- Id er et gemt input -->
-      <!-- <input type="hidden" id="itemIdUpdate" name="itemId">
-
-      <button type="submit" class="other-btn">Update Item</button>
-      <button type="button" id="btn-cancel-update" class="other-btn">Cancel</button>
-    </form>
-  </article> -->
-<!-- </dialog> -->
-        </div>
 
 
           <dialog id="dialog-delete-catalouge-item">

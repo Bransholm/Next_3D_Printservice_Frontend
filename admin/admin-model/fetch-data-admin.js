@@ -3,14 +3,24 @@ import {
   startDateValue,
   endDateValue,
 } from "../admin-controller/finance-site.js";
-import { adminSearchValue, activeFilterValue } from "../admin-controller/admin-catalogue-filter-search.js";
+import {
+  adminSearchValue,
+  activeFilterValue,
+} from "../admin-controller/admin-catalogue-filter-search.js";
+
+async function fetchOrdersData() {
+  console.log("get orders data to admin");
+  const response = await fetch(`${endpoint}/orders?status=ordered`);
+  const ordersData = await response.json();
+  return ordersData;
+}
 
 // fetching catalogue data
 async function getCatalogueData() {
-  console.log("get data to admin");
+  console.log("get catalouge data to admin");
   const response = await fetch(
     `${endpoint}/adminCatalogue?active=${activeFilterValue}&search=${adminSearchValue}`
-);
+  );
   const catalogueData = await response.json();
   return catalogueData;
 }
@@ -57,13 +67,12 @@ async function fetchSystemVariables() {
   return variableData;
 }
 
-
-
 export {
+  fetchOrdersData,
   fetchCustomersData,
   getCatalogueData,
   getStockData,
   getAvailableStockData,
   getfinanceData,
-  fetchSystemVariables
+  fetchSystemVariables,
 };

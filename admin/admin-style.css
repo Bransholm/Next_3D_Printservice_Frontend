@@ -61,6 +61,11 @@ main {
   display: block;
 }
 
+/*orders*/
+.order-status-selector {
+  width: 80px;
+}
+
 /* Products */
 #admin-filter-search {
   padding-top: 50px;
@@ -162,7 +167,6 @@ select {
   margin: 2px;
   padding-top: 20px;
 }
-
 
 /* settings */
 .settings-form-label {
