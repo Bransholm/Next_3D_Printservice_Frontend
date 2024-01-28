@@ -1,5 +1,4 @@
-import { getCatalogueData } from "../frontpage-model/fetch-data.js";
-import { showCatalougeToCustomers } from "./main.js";
+// Imports here
 
 // This file handles the admin filter and search on the admin product catalogue page
 

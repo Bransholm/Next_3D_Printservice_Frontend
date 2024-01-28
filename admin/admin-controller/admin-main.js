@@ -20,6 +20,7 @@ import {
 } from "./update-stock-materials.js";
 import { closeUpdateCompleteWindow } from "../admin-view/stock-update-dialog.js";
 import { showCustomers } from "./show-Customers.js";
+import { adminFilterContent, adminSearchContent } from "./admin-catalogue-filter-search.js";
 
 // initiate the admin site
 function startAdmin() {
@@ -74,6 +75,16 @@ function startEventListernes() {
   document
     .querySelector("#finance-form")
     .addEventListener("submit", submitFianceDates);
+
+  // Eventlistener for active filter on productpage
+  document
+    .querySelector("#filter-active")
+    .addEventListener("change", adminFilterContent);
+
+  // Eventlistener for search on productpage
+  document
+    .querySelector("#admin-search-button")
+    .addEventListener("click", adminSearchContent);
 }
 
 // shows the catalogue items to the admin
