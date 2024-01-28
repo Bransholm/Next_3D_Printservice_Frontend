@@ -66,6 +66,10 @@ main {
   width: 80px;
 }
 
+#status-options {
+  width: 80px;
+}
+
 /* Products */
 #admin-filter-search {
   padding-top: 50px;

@@ -30,6 +30,7 @@ import {
   adminSearchContent,
 } from "./admin-catalogue-filter-search.js";
 import { generateOrdersDom } from "../admin-view/oders-update-dom.js";
+import { ordersFilter, ordersStatusValue } from "./orders-filter.js";
 
 // initiate the admin site
 function startAdmin() {
@@ -107,6 +108,7 @@ function startEventListernes() {
   document
     .querySelector("#updateCatalogueForm")
     .addEventListener("submit", submitCatalogueUpdate);
+
   // Eventlistener for active filter on productpage
   document
     .querySelector("#filter-active")
@@ -116,6 +118,11 @@ function startEventListernes() {
   document
     .querySelector("#admin-search-button")
     .addEventListener("click", adminSearchContent);
+
+  // Eventlistener for status filter on Orders page
+  document
+    .querySelector("#orders-filter-status")
+    .addEventListener("change", ordersFilter);
 }
 
 // shows the catalogue items to the admin

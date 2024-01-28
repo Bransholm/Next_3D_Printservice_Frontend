@@ -28,6 +28,18 @@
 
         <!-- Section orders -->
         <section id="orders" class="view-content">Ordre
+          
+        <!-- The admin dropdown active filter -->
+        <div id="admin-orders-filter">
+        <container id="orders-filter-status">
+        <label for="status-options">Viser ordre for status:</label>
+        <select id="status-options">
+        <option value="ordered" selected>Bestilt</option>
+        <option value="paid">Betalt</option>
+        <option value="delivered">Afsendt</option>
+        </select>
+        </container>
+
            <table id="orders-overview-table">
         <thead>
           <tr>
