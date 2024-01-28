@@ -122,4 +122,5 @@ export {
   updateStockButtonClicked,
   getStockMaterialData,
   getCatalogueItemsData,
+  getSystemSettingsData
 };

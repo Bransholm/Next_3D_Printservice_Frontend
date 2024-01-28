@@ -9,8 +9,8 @@ function autoFillSettingsForm(settings) {
 // retreive the input from the setting forms
 function retrieveUpdateSettingsInput() {
   const form = document.querySelector("#settings-form");
-  const tax = form.tax.value;
-  const shippingPrice = form.shippingPrice.value;
+  const tax = Number(form.tax.value);
+  const shippingPrice = Number(form.shippingPrice.value);
   const mobilePayNumber = form.mobilePayNumber.value;
   const priceCalculationForm = form.priceCalculationForm.value;
 
