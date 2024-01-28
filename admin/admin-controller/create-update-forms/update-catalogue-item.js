@@ -1,7 +1,12 @@
+let catalogueItemId;
+
 // takes the catalouge-item as a parameter and use it to auto fill
 function updateCatalogueDataAutofill(catalogueItem) {
   console.log(catalogueItem);
   const updateForm = document.querySelector("#updateCatalogueForm");
+
+  //saves the id from the selected catalogueItem:
+  catalogueItemId = catalogueItem.id;
 
   updateForm.title.value = catalogueItem.title;
   updateForm.size.value = catalogueItem.standardSize;
@@ -13,17 +18,16 @@ function updateCatalogueDataAutofill(catalogueItem) {
 }
 
 // retrieves the user input from the update-catalouge-form
-function updateCatalogueInputData(event) {
-  event.preventDefault();
-  
+function updateCatalogueInputData() {
   const form = document.querySelector("#updateCatalogueForm");
   const title = form.title.value;
-  const standardSize = Number(form.standardSize.value);
-  const standardWeight = Number(form.standardWeight.value);
-  const itemDescription = from.description.value;
+  const standardSize = Number(form.size.value);
+  const standardWeight = Number(form.weight.value);
+  const itemDescription = form.description.value;
   const imageLink = form.image.value;
   const category = form.category.value;
   const active = Number(form.active.value);
+  const id = catalogueItemId;
 
   return {
     title,
@@ -33,6 +37,7 @@ function updateCatalogueInputData(event) {
     imageLink,
     category,
     active,
+    id,
   };
 }
 
