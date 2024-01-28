@@ -62,6 +62,18 @@ main {
 }
 
 /* Products */
+#admin-filter-search {
+  padding-top: 50px;
+}
+
+#active-options {
+  width: 80px;
+}
+
+#admin-search {
+  width: 170px;
+}
+
 .product-catalog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
