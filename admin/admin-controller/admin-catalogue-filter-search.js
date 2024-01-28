@@ -1,4 +1,4 @@
-// Imports here
+import { getCatalogueItemsData } from "./admin-main.js";
 
 // This file handles the admin filter and search on the admin product catalogue page
 
@@ -10,15 +10,13 @@ let adminSearchValue = "";
 async function adminFilterContent(event) {
   activeFilterValue = event.target.value;
   console.log(`activeFilterValue: ${activeFilterValue}`);
-//   const catalougeItemObjects = await getCatalogueData();
-//   showCatalougeToCustomers(catalougeItemObjects);
+  getCatalogueItemsData();
 }
 
 // Sets the search term from the admin product catalogue page search input into the search variable
 async function adminSearchContent() {
-  adminSearchValue = document.querySelector("#admin-search").value;
-//   const catalougeItemObjects = await getCatalogueData();
-//   showCatalougeToCustomers(catalougeItemObjects);
+    adminSearchValue = document.querySelector("#admin-search").value;
+    getCatalogueItemsData();
   console.log(adminSearchValue);
   adminSearchValue = "";
   document.querySelector("#admin-search").value = "";

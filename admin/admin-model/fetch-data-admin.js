@@ -3,11 +3,12 @@ import {
   startDateValue,
   endDateValue,
 } from "../admin-controller/finance-site.js";
+import { adminSearchValue, activeFilterValue } from "../admin-controller/admin-catalogue-filter-search.js";
 
 // fetching catalogue data
 async function getCatalogueData() {
   console.log("get data to admin");
-  const response = await fetch(`${endpoint}/catalogue`);
+  const response = await fetch(`${endpoint}/adminCatalogue?active=${activeFilterValue}`);
   const catalogueData = await response.json();
   return catalogueData;
 }
