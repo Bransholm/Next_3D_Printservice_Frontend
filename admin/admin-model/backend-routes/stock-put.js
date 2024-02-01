@@ -1,7 +1,6 @@
 import { endpoint } from "../../../frontpage/frontpage-model/endpoint.js";
 
 async function stockUpdateRoute(stockData, id) {
-  // console.log("PUTTING: ", data);
 
   try {
     console.log("the data id: ", id);
@@ -9,7 +8,6 @@ async function stockUpdateRoute(stockData, id) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        // Add any additional headers if needed
       },
       body: JSON.stringify(stockData),
     });
@@ -24,7 +22,6 @@ async function stockUpdateRoute(stockData, id) {
 
     return response;
   } catch (error) {
-    // Handle errors here
     console.error("Error:", error);
     throw error;
   }
