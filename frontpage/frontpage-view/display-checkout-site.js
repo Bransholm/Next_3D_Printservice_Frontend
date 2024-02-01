@@ -15,7 +15,7 @@ async function showPaymentScreen() {
   const messageHTML =
     /*html*/
     `
-  <p> Din ordre er nu booket! For at færdiggøre din bestilling skal du overføre ${displayedTotalPrice.toFixed()} DKK, til 3dprintservice mobilepay på nummeret: ${number}</p>
+  <p> Din ordre er nu booket! For at færdiggøre din bestilling skal du overføre ${displayedTotalPrice.toFixed(2)} DKK, til 3dprintservice mobilepay på nummeret: ${number}</p>
   <button id="btn_finish_payment" class="change_cursor_to_a_pointer_on_hover">Bekræft din betaling</button>
   `;
 
