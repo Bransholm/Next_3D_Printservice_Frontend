@@ -15,7 +15,7 @@ async function showPaymentScreen() {
   const messageHTML =
     /*html*/
     `
-  <p> Din ordre er nu booket! For at færdiggøre din bestilling skal du overføre ${displayedTotalPrice} DKK, til 3dprintservice mobilepay på nummeret: ${number}</p>
+  <p> Din ordre er nu booket! For at færdiggøre din bestilling skal du overføre ${displayedTotalPrice.toFixed()} DKK, til 3dprintservice mobilepay på nummeret: ${number}</p>
   <button id="btn_finish_payment" class="change_cursor_to_a_pointer_on_hover">Bekræft din betaling</button>
   `;
 
@@ -30,8 +30,7 @@ async function showPaymentScreen() {
   resetSiteAfterSuccessfullOrder();
 }
 
-
-// ULOVLIGHEDER!!!! 
+// ULOVLIGHEDER!!!!
 async function fecthMobilePaymenyNo() {
   const variablesData = await fetchSystemVariables();
   const paymentNumber = variablesData[0].MobilePayNumber;
@@ -43,12 +42,12 @@ function showFinishPaymentScreen() {
   const messageHTML =
     /*html*/
     `
-     <p>  Tak for din bestilling.<br>Pengene vil først blive trukket når odren er
+     <p>  Tak for din bestilling.<br>Pengene vil først blive trukket når ordren er
        produceret og afsendt.<br>Du modtager en mail når odren sendes.<br>Tak fordi du
        valgte at handle hos 3dPrinstService.</p>
       
        <a href="#products" class="view-link view-link-menu">
-      <button class="change_cursor_to_a_pointer_on_hover">til forsiden</button>
+      <button class="change_cursor_to_a_pointer_on_hover">Til forsiden</button>
       </a>
      `;
 
@@ -74,7 +73,7 @@ function clearAllShoppingCartItems() {
   // clear the shopping cart html
   clearShoppingCartHTML();
   // removes the totalprice shown at checkout site
- document.querySelector("#shopping_cart_price_iformation").innerHTML = "";
+  document.querySelector("#shopping_cart_price_iformation").innerHTML = "";
 }
 
 export { showPaymentScreen };
